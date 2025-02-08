@@ -2,9 +2,9 @@ import {Application, Router} from "express";
 import superheroController from "../controllers/superheroController";
 const router = Router();
 
-router.get("/api/superheroes", superheroController.getAllSuperheroesHumilityScoreDescending);
-router.post("/api/superheroes", superheroController.createNewSuperhero);
+router.get("/superheroes", superheroController.getAllSuperheroesHumilityScoreDescending);
+router.post("/superheroes", superheroController.createNewSuperhero);
 
 export default (app: Application) => {
-    app.use(router);
+    app.use("/api", router);
 };
