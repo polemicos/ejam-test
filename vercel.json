@@ -7,6 +7,5 @@
   "routes": [
     { "src": "/api/(.*)", "dest": "backend" }, 
     { "src": "/(.*)", "dest": "frontend" }
-  ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  ]
 }
