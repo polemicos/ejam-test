@@ -1,4 +1,4 @@
-import ISuperhero from "../superheroModel";
+import ISuperhero from "../models/superheroModel";
 import { Request, Response } from "express";
 
 let superheroes : ISuperhero[] = [
