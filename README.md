@@ -17,11 +17,11 @@ API Documentation is available [here](https://ejam-test-production.up.railway.ap
 Also I've created a UI for this API, available [here](https://polemicos.github.io/ejam-test-front/) (and here's repo on [github](https://github.com/polemicos/ejam-test-front)).
 
 ### Desktop version
-![desktop](https://github.com/polemicos/ejam-test/tree/main/public/ejam.gif)
+![desktop](https://github.com/polemicos/ejam-test/blob/main/public/ejam.gif)
 
 ### Mobile version
 
-![mobile](https://github.com/polemicos/ejam-test/tree/main/public/ejam-mobile.gif)
+![mobile](https://github.com/polemicos/ejam-test/blob/main/public/ejam-mobile.gif)
 
 ## If had a teammate...
 
