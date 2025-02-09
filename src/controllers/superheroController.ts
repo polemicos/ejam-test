@@ -61,7 +61,7 @@ const createNewSuperhero = (req: Request, res: Response) => {
       id: superheroes.length + 1,
       name,
       superpower,
-      humility_score,
+      humility_score: Number(humility_score),
     };
 
     // Adding the new superhero to the superheroes array
