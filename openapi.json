@@ -1,0 +1,97 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Ejam test assignment",
+    "description": "An API that allows users to fetch the list of superheroes, ordered by their humility score in descending order, and add a new superhero, specifying their name, superpower, and a \"humility score\"",
+    "contact": {
+      "name": "Mikita Rakovich",
+      "email": "mrakovich.job@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://mit-license.org/"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://polemicos.github.io/ejam-test-front/",
+      "description": "Frontend"
+    },
+    {
+      "url": "https://ejam-test-production.up.railway.app/",
+      "description": "Prod server"
+    }
+  ],
+  "paths": {
+    "/api/superheroes": {
+      "get": {
+        "description": "Fetch the list of superheroes, ordered by their humility score in descending order",
+        "responses": {
+          "200": {
+            "description": "Successful pull of superheroes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Superheroes"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Add a new superhero, specifying their name, superpower, and 'humility score'",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Superhero"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Succesfully created a new superhero"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Superheroes": {
+        "type": "array",
+        "description": "Array of superheroes info",
+        "items": {
+          "$ref": "#/components/schemas/Superhero"
+        }
+      },
+      "Superhero": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 3
+          },
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "superpower": {
+            "type": "string",
+            "example": "Secret Genius"
+          },
+          "humility_score": {
+            "maximum": 10,
+            "minimum": 1,
+            "type": "integer",
+            "example": 10
+          }
+        },
+        "description": "Model containing superhero info"
+      }
+    }
+  }
+}

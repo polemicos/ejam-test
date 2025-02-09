@@ -4,11 +4,10 @@ import cors from "cors";
 const app: Application = express();
 
 app.use((req: Request, res: Response, next) => {
-        next();
-}, cors({maxAge: 864600}));
+  next();
+}, cors({ maxAge: 864600 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 routesConfig(app);
 
