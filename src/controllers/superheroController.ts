@@ -1,6 +1,7 @@
 import ISuperhero from "../models/superheroModel";
 import { Request, Response } from "express";
 
+// In-memory database of superhero employees
 let superheroes: ISuperhero[] = [
   {
     id: 1,
@@ -26,12 +27,15 @@ const getAllSuperheroesHumilityScoreDescending = (
   res: Response
 ) => {
   try {
-    const bodyLimit = Number(req.params.bodyLimit) || superheroes.length;
+    // Sorting the copy of the superheroes array by humility score in descending order
     const sorted = [...superheroes].sort(
       (a, b) => b.humility_score - a.humility_score
     );
-    res.status(200).json(sorted.slice(0, bodyLimit));
+
+    // Sending the sorted superheroes array
+    res.status(200).json(sorted);
   } catch (error: any) {
+    // Sending an error message
     res.status(500).send("Error fetching superheroes: " + error.message);
   }
 };
@@ -39,24 +43,34 @@ const getAllSuperheroesHumilityScoreDescending = (
 const createNewSuperhero = (req: Request, res: Response) => {
   try {
     const { name, superpower, humility_score } = req.body;
+
+    // Checking if all required fields are present
     if (!name || !superpower || !humility_score) {
+      // Sending an error message
       return res
         .status(400)
         .send("Name, superpower, and humility score are required");
     }
     if (humility_score > 10 || humility_score < 0) {
+      // Sending an error message
       return res.status(400).send("Humility score must be between 0 and 10");
     }
 
+    // Creating a new superhero
     const newSuperhero: ISuperhero = {
       id: superheroes.length + 1,
       name,
       superpower,
       humility_score,
     };
+
+    // Adding the new superhero to the superheroes array
     superheroes.push(newSuperhero);
+
+    // Sending the new superhero as response
     res.status(201).json(newSuperhero);
   } catch (error: any) {
+    // Sending an error message
     res.status(500).send("Error creating superhero: " + error.message);
   }
 };

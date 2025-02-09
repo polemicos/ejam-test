@@ -6,6 +6,7 @@ const router = Router();
 
 const swaggerDoc = JSON.parse(fs.readFileSync("./openapi.json", "utf-8"));
 
+// Endpoints for superheroes,
 router.get(
   "/superheroes",
   superheroController.getAllSuperheroesHumilityScoreDescending
@@ -13,8 +14,13 @@ router.get(
 router.post("/superheroes", superheroController.createNewSuperhero);
 
 export default (app: Application) => {
+  // Passing the router to the app
   app.use("/api", router);
+
+  // Swagger UI
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+
+  // Default route is redirected to /api-docs
   app.get("/*", (req, res) => {
     res.redirect("/api-docs");
   });
