@@ -4,23 +4,27 @@
   "description": "ejam test assignment",
   "main": "server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node server.ts",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "test": "jest"
   },
   "author": "Mikita Rakovich",
   "license": "MIT",
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.13.1",
-    "@types/swagger-ui-express": "^4.1.7"
+    "@types/swagger-ui-express": "^4.1.7",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "fs": "^0.0.1-security",
+    "jest-mock-req-res": "^1.0.2",
     "swagger-ui-express": "^5.0.1",
     "typescript": "^5.7.3"
   }
