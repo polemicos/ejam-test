@@ -1,6 +1,6 @@
 # Ejam test assignment
 
-A simple API to obtain list of superhero employees by humility score in descending order and add new superheroes! Entities are stored in simple in-memory array.
+A simple API to obtain list of superhero employees by humility score in descending order and add new superheroes! Entities are stored in simple in-memory array. Tests are a part of CI/CD process by Github Actions.
 
 
 
