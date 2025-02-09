@@ -15,10 +15,6 @@
   },
   "servers": [
     {
-      "url": "https://polemicos.github.io/ejam-test-front/",
-      "description": "Frontend"
-    },
-    {
       "url": "https://ejam-test-production.up.railway.app/",
       "description": "Prod server"
     }
@@ -34,6 +30,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Superheroes"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error fetching superheroes",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "type": "string",
+                  "example": "<html>Error fetching superheroes: error</html>"
                 }
               }
             }
@@ -53,8 +60,37 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "Succesfully created a new superhero"
+          "201": {
+            "description": "Succesfully created a new superhero",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Superhero"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Some required properties were not specified",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "type": "string",
+                  "example": "<html>Name, superpower, and humility score are required</html>"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error creating superhero",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "type": "string",
+                  "example": "<html>Error creating superhero: error</html>"
+                }
+              }
+            }
           }
         }
       }
